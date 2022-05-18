@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * JavaFX App
@@ -17,7 +19,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 400, 403);
+        scene = new Scene(loadFXML("Principal"), 800, 500);
         stage.setScene(scene);
         stage.show();
     }
@@ -34,5 +36,6 @@ public class App extends Application {
     public static void main(String[] args) {
         launch();
     }
+    
 
 }
