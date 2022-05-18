@@ -59,7 +59,8 @@ public class Connect {
 		try {
 			c = JAXBContext.newInstance(DataConnect.class);
 			Unmarshaller m = c.createUnmarshaller();
-			DataConnect newR = (DataConnect) m.unmarshal(new File(file));
+			DataConnect newR = (DataConnect) m
+					.unmarshal(Connect.class.getResource("/MarcialFernandez/conexion/conexion.xml"));
 			DatosCon = newR;
 		} catch (Exception e) {
 			// TODO: handle exception
