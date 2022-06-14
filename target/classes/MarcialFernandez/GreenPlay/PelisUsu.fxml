@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MarcialFernandez.GreenPlay.PelisUsuController">
+   <children>
+      <VBox alignment="CENTER" fillWidth="false" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1f773c;">
+         <children>
+            <Label prefHeight="0.0" prefWidth="144.0" text="GreenPlay" textFill="WHITE">
+               <font>
+                  <Font name="Arial Bold Italic" size="29.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <HBox prefHeight="27.0" prefWidth="599.0">
+               <children>
+                  <Button fx:id="PeliculasBoton" mnemonicParsing="false" prefHeight="25.0" prefWidth="297.0" text="Peliculas" />
+                  <Button fx:id="MusicaBoton" mnemonicParsing="false" onAction="#cambiomusica" prefHeight="25.0" prefWidth="304.0" text="Musica">
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+            <TableView fx:id="tablemultimedia" prefHeight="313.0" prefWidth="600.0">
+               <columns>
+                  <TableColumn fx:id="id" prefWidth="89.99996948242188" text="Id_multimedia" />
+                  <TableColumn fx:id="titulo" prefWidth="138.0" text="Titulo" />
+                  <TableColumn fx:id="descripcion" prefWidth="130.6666259765625" text="Descripcion" />
+                  <TableColumn fx:id="autor" prefWidth="84.66668701171875" text="Autor" />
+                  <TableColumn fx:id="director" prefWidth="154.66668701171875" text="Director" />
+               </columns>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </TableView>
+            <HBox prefHeight="30.0" prefWidth="239.0">
+               <children>
+                  <Button fx:id="Descargar" mnemonicParsing="false" onAction="#download" prefHeight="30.0" prefWidth="121.0" text="Descargar" />
+                  <Button fx:id="ListaBotton" mnemonicParsing="false" onAction="#Lista" prefHeight="29.0" prefWidth="115.0" text="Lista Descargas">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import MarcialFernandez.GreenPlay.Model.Usuario;
 import MarcialFernandez.GreenPlay.ModelDao.UsuarioDao;
+import MarcialFernandez.GreenPlay.Utils.PorDefecto;
 import MarcialFernandez.GreenPlay.Utils.Utils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -34,8 +35,13 @@ public class InicioSesionController implements Initializable {
 	private CheckBox check;
 
 	@FXML
-	private void cambioLobby() throws IOException {
-		App.setRoot("Lobby");
+	private void cambioAdmin() throws IOException {
+		App.setRoot("LobbyAdmin");
+	}
+
+	@FXML
+	private void cambioUsuario() throws IOException {
+		App.setRoot("LobbyUsuario");
 	}
 
 	@Override
@@ -73,17 +79,30 @@ public class InicioSesionController implements Initializable {
 		if (!txtdni.getText().isEmpty() && !txtpassword.getText().isEmpty()) {
 
 			Usuario usuario = UsuarioDao.selectUsuario(txtdni.getText(), txtpassword.getText());
+			PorDefecto.usuario = usuario;
 
 			if (usuario != null) {
-
 				if (usuario.getContrasenia().equals(txtpassword2.getText())) {
-					JOptionPane.showMessageDialog(null, "Bienvenido", "INFORMACIÓN", JOptionPane.INFORMATION_MESSAGE);
-					try {
-						cambioLobby();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					if (txtpassword2.getText().equals("admin")) {
+						JOptionPane.showMessageDialog(null, "Bienvenido Admin", "INFORMACIÓN",
+								JOptionPane.INFORMATION_MESSAGE);
+						try {
+							cambioAdmin();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					} else {
+						JOptionPane.showMessageDialog(null, "Bienvenido", "INFORMACIÓN",
+								JOptionPane.INFORMATION_MESSAGE);
+						try {
+							cambioUsuario();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 					}
+
 				} else {
 					JOptionPane.showMessageDialog(null, "La Contraseña que ha ingresado no es la correcta",
 							"ADVERTENCIA", JOptionPane.WARNING_MESSAGE);

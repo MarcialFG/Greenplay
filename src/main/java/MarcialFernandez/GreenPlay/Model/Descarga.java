@@ -1,52 +1,56 @@
 package MarcialFernandez.GreenPlay.Model;
 
+import java.sql.Date;
+import java.sql.Time;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Descarga {
-	protected String dni;
-	protected int id_Multi;
-	protected LocalDateTime fecha;
+	private LocalDate fecha;
+	private Usuario usuario;
+	private Multimedia multimedia;
+
+	public Descarga(LocalDate fecha, Usuario usuario, Multimedia multimedia) {
+		super();
+		this.fecha = fecha;
+		this.usuario = usuario;
+		this.multimedia = multimedia;
+	}
 
 	public Descarga() {
 		super();
 	}
 
-	public Descarga(String dni, int id_Multi, LocalDateTime fecha) {
-		super();
-		this.dni = dni;
-		this.id_Multi = id_Multi;
-		this.fecha = fecha;
-	}
-
-	public String getDni() {
-		return dni;
-	}
-
-	public void setDni(String dni) {
-		this.dni = dni;
-	}
-
-	public int getId_Multi() {
-		return id_Multi;
-	}
-
-	public void setId_Multi(int id_Multi) {
-		this.id_Multi = id_Multi;
-	}
-
-	public LocalDateTime getFecha() {
+	public LocalDate getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(LocalDateTime fecha) {
+	public void setFecha(LocalDate fecha) {
 		this.fecha = fecha;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+	public Multimedia getMultimediatotal() {
+		return multimedia;
+	}
+	public String getMultimedia() {
+		return multimedia.Titulo;
+	}
+
+	public void setMultimedia(Multimedia multimedia) {
+		this.multimedia = multimedia;
 	}
 
 	@Override
 	public String toString() {
-		return "Descarga [dni=" + dni + ", id_Multi=" + id_Multi + ", fecha=" + fecha + "]";
+		return "Descarga [fecha=" + fecha + ", usuario=" + usuario + ", multimedia=" + multimedia + "]";
 	}
-
-	
 
 }

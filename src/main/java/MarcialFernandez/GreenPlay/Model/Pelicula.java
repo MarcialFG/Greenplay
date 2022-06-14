@@ -2,27 +2,33 @@ package MarcialFernandez.GreenPlay.Model;
 
 public class Pelicula extends Multimedia {
 
-	protected String Tipo;
+	private String Director;
 
-	public Pelicula(int id_Multi, String titulo, String descripcion, String autor, String tipo) {
+	public Pelicula(int id_Multi, String titulo, String descripcion, String autor, String director) {
 		super(id_Multi, titulo, descripcion, autor);
-		Tipo = tipo;
+		Director = director;
 	}
 
-	public String getTipo() {
-		return Tipo;
+	public Pelicula(String titulo, String descripcion, String autor, String director) {
+		super(titulo, descripcion, autor);
+		Director = director;
 	}
 
-	public void setTipo(String tipo) {
-		Tipo = tipo;
+	public Pelicula() {
+	}
+
+	public String getDirector() {
+		return Director;
+	}
+
+	public void setDirector(String director) {
+		Director = director;
 	}
 
 	@Override
 	public String toString() {
-		return "Pelicula [Tipo=" + Tipo + ", id_Multi=" + id_Multi + ", titulo=" + titulo + ", descripcion="
-				+ descripcion + ", autor=" + autor + "]";
+		return "Pelicula [Director=" + Director + ", id_Multi=" + id_Multi + ", Titulo=" + Titulo + ", Descripcion="
+				+ Descripcion + ", Autor=" + Autor + "]";
 	}
 
-	
-	
 }

@@ -5,14 +5,21 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import javax.xml.xpath.XPathException;
 
 import com.mysql.cj.xdevapi.Statement;
 
 import MarcialFernandez.GreenPlay.Interface.IusuarioDao;
+import MarcialFernandez.GreenPlay.Model.Multimedia;
+import MarcialFernandez.GreenPlay.Model.Musica;
+import MarcialFernandez.GreenPlay.Model.Pelicula;
 import MarcialFernandez.GreenPlay.Model.Usuario;
 import MarcialFernandez.GreenPlay.Utils.Connect;
+import MarcialFernandez.GreenPlay.Utils.PorDefecto;
 import MarcialFernandez.GreenPlay.Utils.Utils;
 
 public class UsuarioDao extends Usuario implements IusuarioDao {
@@ -67,7 +74,6 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 			ResultSet rs = st.executeQuery(sql);
 			if (rs.next()) {
 				usuario = new Usuario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
-
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -75,5 +81,26 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 		}
 
 		return usuario;
+	}
+
+	public List<Usuario> listaUsuario() {
+		String sql = "SELECT dni,Nombre, Correo FROM usuario";
+		Connection connection = Connect.getConnect();
+		List<Usuario> lista = new ArrayList<Usuario>();
+		try {
+			java.sql.Statement st;
+			st = connection.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				String dni = rs.getString("dni");
+				String nombre = rs.getString("Nombre");
+				String correo = rs.getString("Correo");
+				Usuario usuari = new Usuario(dni, nombre, correo);
+				lista.add(usuari);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return lista;
 	}
 }

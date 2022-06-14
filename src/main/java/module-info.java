@@ -12,6 +12,6 @@ module MarcialFernandez.GreenPlay {
 
 	opens MarcialFernandez.GreenPlay.Utils to java.xml.bind;
 	opens MarcialFernandez.GreenPlay to java.xml.bind, javafx.fxml;
-
+	opens MarcialFernandez.GreenPlay.Model to javafx.base;
 	exports MarcialFernandez.GreenPlay;
 }

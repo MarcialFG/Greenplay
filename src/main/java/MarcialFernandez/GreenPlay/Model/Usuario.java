@@ -3,10 +3,10 @@ package MarcialFernandez.GreenPlay.Model;
 import java.util.Objects;
 
 public class Usuario {
-	protected static String dni;
-	protected static String nombre;
-	protected static String correo;
-	protected static String contraseña;
+	protected String dni;
+	protected String nombre;
+	protected String correo;
+	protected String contraseña;
 
 	public Usuario() {
 		super();
@@ -19,6 +19,14 @@ public class Usuario {
 		this.correo = correo;
 		this.contraseña = contraseña;
 	}
+	
+	public Usuario(String dni, String nombre, String correo) {
+		
+		this.dni = dni;
+		this.nombre = nombre;
+		this.correo = correo;
+	}
+
 	
 
 	public String getDni() {
@@ -55,8 +63,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [dni=" + dni + ", nombre=" + nombre + ", correo=" + correo + ", contrasenia=" + contraseña
-				+ "]";
+		return "Usuario [dni=" + dni + ", nombre=" + nombre + ", correo=" + correo + "]";
 	}
 
 	@Override

@@ -4,9 +4,9 @@ import java.util.Objects;
 
 public class Multimedia {
 	protected int id_Multi;
-	protected String titulo;
-	protected String descripcion;
-	protected String autor;
+	protected String Titulo;
+	protected String Descripcion;
+	protected String Autor;
 
 	public Multimedia() {
 		super();
@@ -15,9 +15,16 @@ public class Multimedia {
 	public Multimedia(int id_Multi, String titulo, String descripcion, String autor) {
 		super();
 		this.id_Multi = id_Multi;
-		this.titulo = titulo;
-		this.descripcion = descripcion;
-		this.autor = autor;
+		this.Titulo = titulo;
+		this.Descripcion = descripcion;
+		this.Autor = autor;
+	}
+
+	public Multimedia(String titulo, String descripcion, String autor) {
+		super();
+		Titulo = titulo;
+		Descripcion = descripcion;
+		Autor = autor;
 	}
 
 	public int getId_Multi() {
@@ -29,34 +36,34 @@ public class Multimedia {
 	}
 
 	public String getTitulo() {
-		return titulo;
+		return Titulo;
 	}
 
 	public void setTitulo(String titulo) {
-		this.titulo = titulo;
+		this.Titulo = titulo;
 	}
 
 	public String getDescripcion() {
-		return descripcion;
+		return Descripcion;
 	}
 
 	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+		this.Descripcion = descripcion;
 	}
 
 	public String getAutor() {
-		return autor;
+		return Autor;
 	}
 
 	public void setAutor(String autor) {
-		this.autor = autor;
+		this.Autor = autor;
 	}
 	
 	
 	@Override
 	public String toString() {
-		return "Multimedia [id_Multi=" + id_Multi + ", titulo=" + titulo + ", descripcion=" + descripcion + ", autor="
-				+ autor + "]";
+		return "Multimedia [id_Multi=" + id_Multi + ", titulo=" + Titulo + ", descripcion=" + Descripcion + ", autor="
+				+ Autor + "]";
 	}
 
 	@Override
