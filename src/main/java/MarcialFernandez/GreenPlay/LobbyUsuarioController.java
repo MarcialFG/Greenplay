@@ -54,15 +54,27 @@ public class LobbyUsuarioController implements Initializable {
 		ObservableList<Multimedia> lista = FXCollections.observableList(multi.listamultimedia());
 		this.table.setItems(lista);
 	}
-
+	/**
+	 * cambia a la pagina que muestra la lista de descargas
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiolistas(ActionEvent e) throws IOException {
 		App.setRoot("ListaDescargas");
 	}
-
+	/**
+	 * cambia a la pagina que muestra las peliculas
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiopelis(ActionEvent e) throws IOException {
 		App.setRoot("PelisUsu");
 	}
-
+	/**
+	 * cambia a la pagina que muestra la musica
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiomusica(ActionEvent e) throws IOException {
 		App.setRoot("MusicaUsu");
 	}

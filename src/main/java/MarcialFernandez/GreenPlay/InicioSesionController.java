@@ -33,12 +33,20 @@ public class InicioSesionController implements Initializable {
 	private TextField txtdni, txtpassword2;
 	@FXML
 	private CheckBox check;
-
+	/**
+	 * cambia a la pagina principal del admin
+	 * @param e
+	 * @throws IOException
+	 */
 	@FXML
 	private void cambioAdmin() throws IOException {
 		App.setRoot("LobbyAdmin");
 	}
-
+	/**
+	 * cambia a la pagina principal del usuario
+	 * @param e
+	 * @throws IOException
+	 */
 	@FXML
 	private void cambioUsuario() throws IOException {
 		App.setRoot("LobbyUsuario");

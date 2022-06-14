@@ -51,15 +51,27 @@ public class LobbyAdminController implements Initializable {
 		ObservableList<Multimedia> lista = FXCollections.observableList(multi.listamultimedia());
 		this.tablemultimedia.setItems(lista);
 	}
-
+	/**
+	 * cambia a la pagina que muestra la lista de usuarios
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiolistas(ActionEvent e) throws IOException {
 		App.setRoot("ListaUsuarios");
 	}
-
+	/**
+	 * cambia a la pagina que muestra las peliculas
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiopelis(ActionEvent e) throws IOException {
 		App.setRoot("Pelis");
 	}
-
+	/**
+	 * cambia a la pagina que muestra la musica
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiomusica(ActionEvent e) throws IOException {
 		App.setRoot("Musica");
 	}

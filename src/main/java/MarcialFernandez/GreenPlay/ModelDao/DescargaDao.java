@@ -29,7 +29,10 @@ public class DescargaDao extends Descarga implements IdescargaDao {
 	public DescargaDao() {
 		// TODO Auto-generated constructor stub
 	}
-
+	/**
+	 * añade a la base de datos una descarga con los paramtros introducidos
+	 */
+	 
 	@Override
 	public boolean Download(Descarga d) {
 		Connection connection = Connect.getConnect();
@@ -52,10 +55,16 @@ public class DescargaDao extends Descarga implements IdescargaDao {
 
 		return state;
 	}
-
+	/**
+	 * Crea una lista de las descargas recogidos de la base de datos y los añade uno a uno segun el dni introducido
+	 * sql es la sentencia para recoger la fecha , el titulo de la multimedia y su id
+	 * @param dni
+	 * @return
+	 */
 	public List<Descarga> listaDescargas(String dni) {
-		String sql = "SELECT descarga.Fecha, multimedia.Titulo from descarga,multimedia,usuario WHERE descarga.Id_multimedia=multimedia.Id_multimedia AND usuario.dni=descarga.Dni AND descarga.Dni='"+dni+"'" ;
-		
+		String sql = "SELECT descarga.Fecha, multimedia.Titulo, multimedia.Id_multimedia from descarga,multimedia,usuario WHERE descarga.Id_multimedia=multimedia.Id_multimedia AND usuario.dni=descarga.Dni AND descarga.Dni='"
+				+ dni + "'";
+
 		Connection connection = Connect.getConnect();
 		List<Descarga> lista = new ArrayList<>();
 		try {
@@ -64,9 +73,10 @@ public class DescargaDao extends Descarga implements IdescargaDao {
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
 				LocalDate fecha = rs.getDate("Fecha").toLocalDate();
-				String titulo=rs.getString("Titulo");
+				String titulo = rs.getString("Titulo");
+				int id=rs.getInt("Id_multimedia");
 				Usuario u = new Usuario();
-				Multimedia m = new Multimedia(titulo, "", "");
+				Multimedia m = new Multimedia(id, titulo, "", "");
 				Descarga d = new Descarga(fecha, u, m);
 				lista.add(d);
 			}
@@ -75,5 +85,26 @@ public class DescargaDao extends Descarga implements IdescargaDao {
 		}
 		return lista;
 	}
+/**
+ * borra de la base de datos la descarga seleccionada segun la id de la multimedia
+ * sql es la sentencia para borrar la descarga donde la id sea la introducida
+ * @param id_Multi
+ * @return
+ */
+	public boolean delete(int id_Multi) {
+		boolean result = false;
+		Connection connection = Connect.getConnect();
+		String sql = "DELETE from descarga WHERE Id_multimedia= ?";
+		PreparedStatement pst;
+		try {
+			pst = connection.prepareStatement(sql);
+			pst.setInt(1, id_Multi);
+			pst.executeUpdate();
+			result = true;
+		} catch (Exception e) {
+			// TODO: handle exception
 
+		}
+		return result;
+	}
 }

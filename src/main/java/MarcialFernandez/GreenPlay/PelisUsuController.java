@@ -53,13 +53,28 @@ public class PelisUsuController implements Initializable{
 		ObservableList<Multimedia> lista = FXCollections.observableList(peli.listaPeliculas());
 		this.tablemultimedia.setItems(lista);
 	}
-
+	/**
+	 * cambia a la pagina que muestra las canciones
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiomusica(ActionEvent e) throws IOException {
 		App.setRoot("MusicaUsu");
 	}
+	/**
+	 * cambia a la pagina que muestra la lista de descargas
+	 * @param e
+	 * @throws IOException
+	 */
 	public void Lista(ActionEvent e) throws IOException {
 		App.setRoot("ListaDescargas");
 	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y los guarda para llamar a la funcion descarga y añadir 
+	 * una descarga a la base de datos
+	 * @param e
+	 * @throws IOException
+	 */
 	public void download(ActionEvent e) throws IOException {
 		Multimedia m = this.tablemultimedia.getSelectionModel().getSelectedItem();
 		if (m!=null) {

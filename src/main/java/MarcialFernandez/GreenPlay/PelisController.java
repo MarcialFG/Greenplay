@@ -56,17 +56,35 @@ public class PelisController implements Initializable{
 		ObservableList<Multimedia> lista = FXCollections.observableList(peli.listaPeliculas());
 		this.tablemultimedia.setItems(lista);
 	}
-
+	/**
+	 * vulve a la pagina principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}
-
+	/**
+	 * cambia a la pagina que muestra las canciones
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambiomusica(ActionEvent e) throws IOException {
 		App.setRoot("Musica");
 	}
+	/**
+	 * cambia a la pagina que recoge los valores para añadir una pelicula
+	 * @param e
+	 * @throws IOException
+	 */
 	public void añadir(ActionEvent e) throws IOException {
 		App.setRoot("AddPelicula");
 	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y los guarda para usarlos en la vista siguiente
+	 * @param e
+	 * @throws IOException
+	 */
 	public void editar(ActionEvent e) throws IOException {
 		Multimedia m = this.tablemultimedia.getSelectionModel().getSelectedItem();
 		if (m!=null) {
@@ -77,6 +95,11 @@ public class PelisController implements Initializable{
 			App.setRoot("EditarPelis");
 		}
 	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y le pasa a la funcion delete la id_multi seleccionada
+	 * @param e
+	 * @throws IOException
+	 */
 	public void delete(ActionEvent e) throws IOException {
 		MultimediaDao mu = new MultimediaDao();
 		Multimedia m = this.tablemultimedia.getSelectionModel().getSelectedItem();

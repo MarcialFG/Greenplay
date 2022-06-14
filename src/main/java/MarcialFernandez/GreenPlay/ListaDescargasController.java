@@ -31,9 +31,27 @@ public class ListaDescargasController implements Initializable{
 	@FXML
 	private TableColumn<Descarga, String> multimedia;
 	@FXML
-	private Button volver,borrar;
-	
+	private Button volver,delete;
+	/**
+	 * vuelve a la pagina principal 
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
+		App.setRoot("LobbyUsuario");
+	}
+	/**
+	 * borra la descarga seleccionada en la tabla
+	 * @param e
+	 * @throws IOException
+	 */
+	public void delete(ActionEvent e) throws IOException {
+		DescargaDao d = new DescargaDao();
+		Descarga des = this.tablaDescargas.getSelectionModel().getSelectedItem();
+		System.out.println(des);
+		if (des!=null) {
+			d.delete(des.getMultimediatotal().getId_Multi());
+		}
 		App.setRoot("LobbyUsuario");
 	}
 	

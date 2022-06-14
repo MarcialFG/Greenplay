@@ -82,7 +82,11 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 
 		return usuario;
 	}
-
+/**
+ * Crea una lista de los usuarios recogidos de la base de datos y los añade uno a uno
+ * sql es la sentencia para recoger todos los parametros del usuario menos la contraseña
+ * @return
+ */
 	public List<Usuario> listaUsuario() {
 		String sql = "SELECT dni,Nombre, Correo FROM usuario";
 		Connection connection = Connect.getConnect();

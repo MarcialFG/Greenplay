@@ -41,7 +41,11 @@ public class ListaUsuariosController implements Initializable {
 		ObservableList<Usuario> lista = FXCollections.observableList(usu.listaUsuario());
 		this.tablausuarios.setItems(lista);
 	}
-	
+	/**
+	 * vuelve a la pagina principal 
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}

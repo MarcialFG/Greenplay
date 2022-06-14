@@ -14,38 +14,50 @@ import MarcialFernandez.GreenPlay.Model.Pelicula;
 import MarcialFernandez.GreenPlay.Model.Usuario;
 import MarcialFernandez.GreenPlay.Utils.Connect;
 
-public class MultimediaDao implements ImultimediaDao{
-	
-	public List<Multimedia>listamultimedia() {
+public class MultimediaDao implements ImultimediaDao {
+	/**
+	 * Crea una lista de las multimedias recogidos de la base de datos y los añade
+	 * uno a uno sql es la sentencia para recoger todos los datos de multimedia
+	 * 
+	 * @param dni
+	 * @return
+	 */
+	public List<Multimedia> listamultimedia() {
 		String sql = "Select * from multimedia";
 		Connection connection = Connect.getConnect();
-		List<Multimedia>lista=new ArrayList<>();
+		List<Multimedia> lista = new ArrayList<>();
 		try {
 			java.sql.Statement st;
 			st = connection.createStatement();
 			ResultSet rs = st.executeQuery(sql);
 			while (rs.next()) {
-				int id=rs.getInt("Id_multimedia");
-				String titulo=rs.getString("Titulo");
-				String descrip=rs.getString("Descripcion");
-				String autor=rs.getString("Autor");
-				String director=rs.getString("Director");
-				String productor=rs.getString("Productor");
-				if(productor==null) {
-					Pelicula p=new Pelicula(id,titulo,descrip,autor,director);
+				int id = rs.getInt("Id_multimedia");
+				String titulo = rs.getString("Titulo");
+				String descrip = rs.getString("Descripcion");
+				String autor = rs.getString("Autor");
+				String director = rs.getString("Director");
+				String productor = rs.getString("Productor");
+				if (productor == null) {
+					Pelicula p = new Pelicula(id, titulo, descrip, autor, director);
 					lista.add(p);
-				}else {
-					Musica m=new Musica(id,titulo,descrip,autor,productor);
+				} else {
+					Musica m = new Musica(id, titulo, descrip, autor, productor);
 					lista.add(m);
 				}
-				
+
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 		return lista;
 	}
-	
+
+	/**
+	 * añade los parametros de la pelicula a la tabla multimedia de la base de datos
+	 * 
+	 * @param p es la pelicula introducida
+	 * @return
+	 */
 	public static boolean insertPelicula(Pelicula p) {
 
 		Connection connection = Connect.getConnect();
@@ -69,6 +81,13 @@ public class MultimediaDao implements ImultimediaDao{
 
 		return state;
 	}
+
+	/**
+	 * añade los parametros de la cancion a la tabla multimedia de la base de datos
+	 * 
+	 * @param m es la cancion introducida
+	 * @return
+	 */
 	public static boolean insertMusica(Musica m) {
 
 		Connection connection = Connect.getConnect();
@@ -93,8 +112,14 @@ public class MultimediaDao implements ImultimediaDao{
 		return state;
 	}
 
+	/**
+	 * borra la multimedia de la base de datos segun la id introducida
+	 * 
+	 * @param id_Multi
+	 * @return
+	 */
 	public boolean delete(int id_Multi) {
-		boolean result=false;
+		boolean result = false;
 		Connection connection = Connect.getConnect();
 		String sql = "DELETE from multimedia WHERE Id_multimedia= ?";
 		PreparedStatement pst;
@@ -102,15 +127,13 @@ public class MultimediaDao implements ImultimediaDao{
 			pst = connection.prepareStatement(sql);
 			pst.setInt(1, id_Multi);
 			pst.executeUpdate();
-			result=true;
+			result = true;
 		} catch (Exception e) {
 			// TODO: handle exception
+
 		}
-		
-		
-		
+
 		return result;
-		
-		
+
 	}
 }

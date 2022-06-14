@@ -41,17 +41,35 @@ public class MusicaController implements Initializable{
 	private Button EditarBotton;
 	@FXML
 	private Button Volver;
-
+	/**
+	 * vulve a la pagina principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}
-
+	/**
+	 * cambia a la pagina que muestra las peliculas
+	 * @param e
+	 * @throws IOException
+	 */
 	public void cambioPeli(ActionEvent e) throws IOException {
 		App.setRoot("Pelis");
 	}
+	/**
+	 * cambia a la pagina que recoge los valores para añadir una cancion
+	 * @param e
+	 * @throws IOException
+	 */
 	public void añadir(ActionEvent e) throws IOException {
 		App.setRoot("AddMusica");
 	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y los guarda para usarlos en la vista siguiente
+	 * @param e
+	 * @throws IOException
+	 */
 	public void Editar(ActionEvent e) throws IOException {
 		Multimedia m = this.tablemultimedia.getSelectionModel().getSelectedItem();
 		if (m!=null) {
@@ -63,6 +81,11 @@ public class MusicaController implements Initializable{
 		}
 
 	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y le pasa a la funcion delete la id_multi seleccionada
+	 * @param e
+	 * @throws IOException
+	 */
 	public void delete(ActionEvent e) throws IOException {
 		MultimediaDao mu = new MultimediaDao();
 		Multimedia m = this.tablemultimedia.getSelectionModel().getSelectedItem();

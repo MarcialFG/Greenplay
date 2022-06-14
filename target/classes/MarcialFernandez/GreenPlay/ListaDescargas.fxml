@@ -31,10 +31,10 @@
                   <Insets />
                </VBox.margin>
             </TableView>
-            <HBox prefHeight="35.0" prefWidth="211.0">
+            <HBox prefHeight="35.0" prefWidth="177.0">
                <children>
-                  <Button fx:id="volver" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="106.0" text="Volver" />
-                  <Button fx:id="borrar" mnemonicParsing="false" onAction="#borrar" prefHeight="35.0" prefWidth="106.0" text="Borrar">
+                  <Button fx:id="volver" mnemonicParsing="false" onAction="#volver" prefHeight="35.0" prefWidth="113.0" text="Volver" />
+                  <Button fx:id="delete" mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="113.0" text="Borrar">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

@@ -19,7 +19,11 @@ public class EditarmusicaController {
 	private TextField txttitulo, txtdescripcion, txtautor, txtproductor;
 	@FXML
 	private Button volver, editar;
-
+	/**	
+	 * Edita una cancion de la base de datos con los parametros introducidos por teclado
+	 * @param e
+	 * @throws IOException
+	 */
 	public void editar(ActionEvent e) throws IOException {
 		MusicaDao m = new MusicaDao();
 		if (!txttitulo.getText().isEmpty() && !txtdescripcion.getText().isEmpty() && !txtautor.getText().isEmpty()
@@ -44,7 +48,11 @@ public class EditarmusicaController {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	/**
+	 * vulve a la pagina principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}

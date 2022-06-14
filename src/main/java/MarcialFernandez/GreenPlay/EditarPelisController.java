@@ -17,7 +17,11 @@ public class EditarPelisController {
 	private TextField txttitulo, txtdescripcion, txtautor, txtdirector;
 	@FXML
 	private Button volver, editar;
-
+	/**	
+	 * Edita una pelicula de la base de datos con los parametros introducidos por teclado
+	 * @param e
+	 * @throws IOException
+	 */
 	public void editar(ActionEvent e) throws IOException {
 		PeliculaDao p = new PeliculaDao();
 		if (!txttitulo.getText().isEmpty() && !txtdescripcion.getText().isEmpty() && !txtautor.getText().isEmpty()
@@ -43,7 +47,11 @@ public class EditarPelisController {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	/**
+	 * vulve a la pagina principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}

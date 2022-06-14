@@ -17,7 +17,11 @@ public class AddMusicaController {
 	private TextField txttitulo, txtdescripcion, txtautor, txtproductor;
 	@FXML
 	private Button volver, add;
-
+	/**
+	 * Añade una cancion a la base de datos con los paramtros introducidos por teclado
+	 * @param e
+	 * @throws IOException
+	 */
 	@FXML
 	public void add(ActionEvent e) throws IOException {
 		if (!txttitulo.getText().isEmpty() && !txtdescripcion.getText().isEmpty() && !txtautor.getText().isEmpty() && !txtproductor.getText().isEmpty()) {
@@ -45,7 +49,11 @@ public class AddMusicaController {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	/**
+	 * vuelve a la página principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}

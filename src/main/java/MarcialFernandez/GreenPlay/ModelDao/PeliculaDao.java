@@ -15,7 +15,10 @@ import MarcialFernandez.GreenPlay.Utils.Connect;
 import javafx.util.Callback;
 
 public class PeliculaDao implements IpeliculaDao {
-
+	/* Crea una lista de peliculas recogidas de la base de datos y las añade uno a uno
+	 * sql es la sentencia para recoger todos los parametros de la tabla multimedia
+	 * @return
+	 */
 	public List<Multimedia> listaPeliculas() {
 		String sql = "Select * from multimedia";
 		Connection connection = Connect.getConnect();
@@ -41,6 +44,15 @@ public class PeliculaDao implements IpeliculaDao {
 		}
 		return lista;
 	}
+	/**
+	 * actualiza la pelicula en la base de datos segun los parametros introducidos
+	 * @param id
+	 * @param titulo
+	 * @param descripcion
+	 * @param autor
+	 * @param director
+	 * @return
+	 */
 	public boolean update(int id,String titulo,String descripcion,String autor,String director) {
 		boolean result=false;
 		String sql = "UPDATE multimedia set Titulo=?, Descripcion=?, Autor=?, Director=? WHERE Id_multimedia="+ id;

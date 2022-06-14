@@ -13,6 +13,10 @@ import MarcialFernandez.GreenPlay.Model.Pelicula;
 import MarcialFernandez.GreenPlay.Utils.Connect;
 
 public class MusicaDao implements ImusicaDao{
+	/* Crea una lista de canciones recogidas de la base de datos y las añade uno a uno
+	 * sql es la sentencia para recoger todos los parametros de la tabla multimedia
+	 * @return
+	 */
 	public List<Multimedia> listaMusica() {
 		String sql = "Select * from multimedia";
 		Connection connection = Connect.getConnect();
@@ -38,7 +42,15 @@ public class MusicaDao implements ImusicaDao{
 		}
 		return lista;
 	}
-	
+	/**
+	 * actualiza la cancion en la base de datos segun los parametros introducidos
+	 * @param id
+	 * @param titulo
+	 * @param descripcion
+	 * @param autor
+	 * @param productor
+	 * @return
+	 */
 	public boolean update(int id,String titulo,String descripcion,String autor,String productor) {
 		boolean result=false;
 		String sql = "UPDATE multimedia set Titulo=?, Descripcion=?, Autor=?, Productor=? WHERE Id_multimedia="+ id;

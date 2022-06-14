@@ -25,7 +25,11 @@ public class AddPeliculaController {
 	private TextField txttitulo, txtdescripcion, txtautor, txtdirector;
 	@FXML
 	private Button volver, add;
-
+	/**	
+	 * Añade una pelicula a la base de datos con los paramtros introducidos por teclado
+	 * @param e
+	 * @throws IOException
+	 */
 	@FXML
 	public void add(ActionEvent e) throws IOException {
 		if (!txttitulo.getText().isEmpty() && !txtdescripcion.getText().isEmpty() && !txtautor.getText().isEmpty() && !txtdirector.getText().isEmpty()) {
@@ -53,7 +57,11 @@ public class AddPeliculaController {
 					JOptionPane.ERROR_MESSAGE);
 		}
 	}
-
+	/**
+	 * vulve a la pagina principal
+	 * @param e
+	 * @throws IOException
+	 */
 	public void volver(ActionEvent e) throws IOException {
 		App.setRoot("LobbyAdmin");
 	}
