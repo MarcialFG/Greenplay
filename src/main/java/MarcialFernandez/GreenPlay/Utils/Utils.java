@@ -39,19 +39,16 @@ public class Utils {
 		String dni = Dni;
 		boolean valid = false;
 
-		do {
 			try {
 				if (dni.matches("[0-9]{8}[A-Z a-z]")) {
 					valid = true;
 				} else {
 					valid = false;
-					System.out.println("Debe tener 8 digitos y un caracter");
 				}
 
 			} catch (Exception ex) {
-				System.out.println("Error, prueba de nuevo: ");
+	
 			}
-		} while (!valid);
 		return valid;
 	}
 

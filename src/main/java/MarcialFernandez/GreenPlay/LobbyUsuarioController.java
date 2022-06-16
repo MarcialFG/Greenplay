@@ -2,10 +2,16 @@ package MarcialFernandez.GreenPlay;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
+import javax.swing.JOptionPane;
+
+import MarcialFernandez.GreenPlay.Model.Descarga;
 import MarcialFernandez.GreenPlay.Model.Multimedia;
+import MarcialFernandez.GreenPlay.ModelDao.DescargaDao;
 import MarcialFernandez.GreenPlay.ModelDao.MultimediaDao;
+import MarcialFernandez.GreenPlay.Utils.PorDefecto;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -77,6 +83,30 @@ public class LobbyUsuarioController implements Initializable {
 	 */
 	public void cambiomusica(ActionEvent e) throws IOException {
 		App.setRoot("MusicaUsu");
+	}
+	/**
+	 * recoge los datos de la multimedia seleccionada y los guarda para llamar a la funcion descarga y añadir 
+	 * una descarga a la base de datos
+	 * @param e
+	 * @throws IOException
+	 */
+	public void download(ActionEvent e) throws IOException {
+		Multimedia m = this.table.getSelectionModel().getSelectedItem();
+		if (m!=null) {
+			PorDefecto.multimedia.setId_Multi(m.getId_Multi());
+			PorDefecto.multimedia.setTitulo(m.getTitulo());
+			PorDefecto.multimedia.setDescripcion(m.getDescripcion());
+			PorDefecto.multimedia.setAutor(m.getAutor());
+		}
+		DescargaDao d = new DescargaDao();
+		Descarga des = new Descarga(LocalDate.now(), PorDefecto.usuario, PorDefecto.multimedia);
+		if (d.Download(des)) {
+			JOptionPane.showMessageDialog(null, "La descarga comenzara en breves",
+					"OPERACIÓN ÉXITOSA", JOptionPane.INFORMATION_MESSAGE);
+		}else {
+			JOptionPane.showMessageDialog(null, "La descarga no se ha podido realizar o ya se ha descargado",
+					"OPERACIÓN ERRONEA", JOptionPane.INFORMATION_MESSAGE);
+		}
 	}
 
 }

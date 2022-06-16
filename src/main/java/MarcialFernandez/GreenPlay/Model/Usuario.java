@@ -1,5 +1,6 @@
 package MarcialFernandez.GreenPlay.Model;
 
+import java.util.List;
 import java.util.Objects;
 
 public class Usuario {
@@ -7,6 +8,7 @@ public class Usuario {
 	protected String nombre;
 	protected String correo;
 	protected String contraseña;
+	protected List<Descarga>misDescargas;
 
 	public Usuario() {
 		super();

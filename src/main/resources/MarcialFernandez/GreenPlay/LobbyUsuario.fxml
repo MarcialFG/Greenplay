@@ -47,7 +47,7 @@
             </TableView>
             <HBox prefHeight="30.0" prefWidth="239.0">
                <children>
-                  <Button fx:id="Descargar" mnemonicParsing="false" prefHeight="30.0" prefWidth="121.0" text="Descargar" />
+                  <Button fx:id="Descargar" mnemonicParsing="false" onAction="#download" prefHeight="30.0" prefWidth="121.0" text="Descargar" />
                   <Button fx:id="ListaBotton" mnemonicParsing="false" onAction="#cambiolistas" prefHeight="29.0" prefWidth="115.0" text="Lista Descargas">
                      <HBox.margin>
                         <Insets left="10.0" />

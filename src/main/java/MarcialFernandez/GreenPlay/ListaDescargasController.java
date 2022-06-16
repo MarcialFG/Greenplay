@@ -60,8 +60,9 @@ public class ListaDescargasController implements Initializable{
 		// TODO Auto-generated method stub
 		this.fecha.setCellValueFactory(new PropertyValueFactory<>("fecha"));
 		this.multimedia.setCellValueFactory(new PropertyValueFactory<>("multimedia"));
-		DescargaDao d = new DescargaDao();
-		ObservableList<Descarga> lista = FXCollections.observableList(d.listaDescargas(PorDefecto.usuario.getDni()));
+		UsuarioDao u = new UsuarioDao();
+		ObservableList<Descarga>lista = FXCollections.observableList(u.listaMisDescargas(PorDefecto.usuario));
+		System.out.println("adios");
 		this.tablaDescargas.setItems(lista);
 	}
 }

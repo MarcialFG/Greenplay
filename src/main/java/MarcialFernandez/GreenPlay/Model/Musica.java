@@ -29,8 +29,7 @@ public class Musica extends Multimedia {
 
 	@Override
 	public String toString() {
-		return "Musica [Productor=" + Productor + ", id_Multi=" + id_Multi + ", Titulo=" + Titulo + ", Descripcion="
-				+ Descripcion + ", Autor=" + Autor + "]";
+		return super.toString()+ "Productor=" + Productor + "]";
 	}
 
 }

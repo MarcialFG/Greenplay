@@ -31,7 +31,7 @@ public class RegistroController {
 	public void actionEvent(ActionEvent e) {
 		if (!txtcorreo.getText().isEmpty() && !txtusuario.getText().isEmpty() && !txtdni.getText().isEmpty()
 				&& !txtcontraseña.getText().isEmpty()) {
-			if (Utils.validateEmail(txtcorreo.getText())) {
+			if (Utils.validateEmail(txtcorreo.getText())==true) {
 				if (Utils.getDNI(txtdni.getText())) {
 					if (txtusuario.getText().length() >= 3) {
 

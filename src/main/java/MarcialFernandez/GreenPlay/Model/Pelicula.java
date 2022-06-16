@@ -27,8 +27,7 @@ public class Pelicula extends Multimedia {
 
 	@Override
 	public String toString() {
-		return "Pelicula [Director=" + Director + ", id_Multi=" + id_Multi + ", Titulo=" + Titulo + ", Descripcion="
-				+ Descripcion + ", Autor=" + Autor + "]";
+		return super.toString()+"Director= " + Director + "]";
 	}
 
 }

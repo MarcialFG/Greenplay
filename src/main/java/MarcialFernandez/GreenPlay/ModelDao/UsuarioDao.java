@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.xml.xpath.XPathException;
 import com.mysql.cj.xdevapi.Statement;
 
 import MarcialFernandez.GreenPlay.Interface.IusuarioDao;
+import MarcialFernandez.GreenPlay.Model.Descarga;
 import MarcialFernandez.GreenPlay.Model.Multimedia;
 import MarcialFernandez.GreenPlay.Model.Musica;
 import MarcialFernandez.GreenPlay.Model.Pelicula;
@@ -106,5 +108,33 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 			// TODO: handle exception
 		}
 		return lista;
+	}
+	/**
+	 * Crea una lista de las descargas recogidos de la base de datos y los añade uno a uno segun el dni introducido
+	 * sql es la sentencia para recoger la fecha , el titulo de la multimedia y su id
+	 * @param dni
+	 * @return
+	 */
+	public List<Descarga> listaMisDescargas(Usuario u) {
+		String sql = "SELECT descarga.Fecha, multimedia.Titulo, multimedia.Id_multimedia from descarga,multimedia,usuario WHERE descarga.Id_multimedia=multimedia.Id_multimedia AND usuario.dni=descarga.Dni AND descarga.Dni='"
+				+ u.getDni() + "'";
+		Connection connection = Connect.getConnect();
+		try {
+			java.sql.Statement st;
+			st = connection.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			while (rs.next()) {
+				LocalDate fecha = rs.getDate("Fecha").toLocalDate();
+				String titulo = rs.getString("Titulo");
+				int id=rs.getInt("Id_multimedia");
+				Multimedia m = new Multimedia(id, titulo, "", "");
+				Descarga d = new Descarga(fecha, u, m);
+				misDescargas.add(d);
+				System.out.println(misDescargas);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return misDescargas;
 	}
 }
