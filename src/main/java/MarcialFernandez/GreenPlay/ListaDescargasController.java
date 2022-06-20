@@ -62,7 +62,6 @@ public class ListaDescargasController implements Initializable{
 		this.multimedia.setCellValueFactory(new PropertyValueFactory<>("multimedia"));
 		UsuarioDao u = new UsuarioDao();
 		ObservableList<Descarga>lista = FXCollections.observableList(u.listaMisDescargas(PorDefecto.usuario));
-		System.out.println("adios");
 		this.tablaDescargas.setItems(lista);
 	}
 }

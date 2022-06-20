@@ -69,6 +69,14 @@ public class LobbyUsuarioController implements Initializable {
 		App.setRoot("ListaDescargas");
 	}
 	/**
+	 * cambia a la pagina principal de inicio de sesion
+	 * @param e
+	 * @throws IOException
+	 */
+	public void cambiosesion(ActionEvent e) throws IOException {
+		App.setRoot("Principal");
+	}
+	/**
 	 * cambia a la pagina que muestra las peliculas
 	 * @param e
 	 * @throws IOException

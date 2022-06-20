@@ -47,7 +47,12 @@
             </TableView>
             <HBox prefHeight="35.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="listaUsuarios" mnemonicParsing="false" onAction="#cambiolistas" prefHeight="35.0" prefWidth="205.0" text="Lista de usuarios" />
+                  <Button fx:id="listaUsuarios" mnemonicParsing="false" onAction="#cambiolistas" prefHeight="34.0" prefWidth="122.0" text="Lista de usuarios" />
+                  <Button fx:id="Salir" mnemonicParsing="false" onAction="#cambiosesion" prefHeight="35.0" prefWidth="70.0" text="Salir">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
                </children>
             </HBox>
          </children>

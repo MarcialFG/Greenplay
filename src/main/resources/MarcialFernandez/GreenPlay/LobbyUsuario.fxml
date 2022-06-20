@@ -45,10 +45,15 @@
                   <Insets />
                </VBox.margin>
             </TableView>
-            <HBox prefHeight="30.0" prefWidth="239.0">
+            <HBox prefHeight="29.0" prefWidth="332.0">
                <children>
                   <Button fx:id="Descargar" mnemonicParsing="false" onAction="#download" prefHeight="30.0" prefWidth="121.0" text="Descargar" />
                   <Button fx:id="ListaBotton" mnemonicParsing="false" onAction="#cambiolistas" prefHeight="29.0" prefWidth="115.0" text="Lista Descargas">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="Salir" mnemonicParsing="false" onAction="#cambiosesion" prefHeight="32.0" prefWidth="67.0" text="Salir">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>

@@ -68,6 +68,14 @@ public class LobbyAdminController implements Initializable {
 		App.setRoot("Pelis");
 	}
 	/**
+	 * cambia a la pagina principal de inicio de sesion
+	 * @param e
+	 * @throws IOException
+	 */
+	public void cambiosesion(ActionEvent e) throws IOException {
+		App.setRoot("Principal");
+	}
+	/**
 	 * cambia a la pagina que muestra la musica
 	 * @param e
 	 * @throws IOException

@@ -90,7 +90,7 @@ public class InicioSesionController implements Initializable {
 			PorDefecto.usuario = usuario;
 
 			if (usuario != null) {
-				if (usuario.getContrasenia().equals(txtpassword2.getText())) {
+				if (usuario.getContraseña().equals(txtpassword2.getText())) {
 					if (txtpassword2.getText().equals("admin")) {
 						JOptionPane.showMessageDialog(null, "Bienvenido Admin", "INFORMACIÓN",
 								JOptionPane.INFORMATION_MESSAGE);

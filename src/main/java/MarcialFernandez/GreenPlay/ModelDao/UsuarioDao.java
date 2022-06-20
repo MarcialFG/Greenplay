@@ -44,7 +44,7 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 			pst.setString(1, usuario.getDni());
 			pst.setString(2, usuario.getNombre());
 			pst.setString(3, usuario.getCorreo());
-			pst.setString(4, usuario.getContrasenia());
+			pst.setString(4, usuario.getContraseña());
 			pst.executeUpdate();
 			state = true;
 		} catch (SQLException e) {
@@ -119,6 +119,7 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 		String sql = "SELECT descarga.Fecha, multimedia.Titulo, multimedia.Id_multimedia from descarga,multimedia,usuario WHERE descarga.Id_multimedia=multimedia.Id_multimedia AND usuario.dni=descarga.Dni AND descarga.Dni='"
 				+ u.getDni() + "'";
 		Connection connection = Connect.getConnect();
+		List<Descarga> lista = new ArrayList<>();
 		try {
 			java.sql.Statement st;
 			st = connection.createStatement();
@@ -128,13 +129,12 @@ public class UsuarioDao extends Usuario implements IusuarioDao {
 				String titulo = rs.getString("Titulo");
 				int id=rs.getInt("Id_multimedia");
 				Multimedia m = new Multimedia(id, titulo, "", "");
-				Descarga d = new Descarga(fecha, u, m);
-				misDescargas.add(d);
-				System.out.println(misDescargas);
+				Descarga d = new Descarga(fecha, u, m);				
+				lista.add(d);
 			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		return misDescargas;
+		return lista;
 	}
 }
